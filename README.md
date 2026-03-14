@@ -1,21 +1,15 @@
+markdown
 # Otomatik Haftalık Ağ Taraması - Auto Network Scan
 
-## Proje Açıklaması
-
-Bu proje, TryHackMe AttackBox ortamında kullanılmak üzere haftalık otomatik ağ taraması yapmak için hazırlanmış basit bir betiktir.  
-Nmap ile belirlenen IP aralığını SYN tarama yöntemiyle tam port taraması yapar ve çıktıyı tarihli dosyada saklar.
-
-## Dosyalar
-
-- `scan.sh` : Nmap taraması yapan ve sonuçları `reports/` klasörüne tarihli dosyada kaydeden çalıştırılabilir bash script.
-- `reports/` : Tarama sonuçlarının saklandığı klasör (git ile paylaşılmaz).
-- `.gitignore` : Takip edilmeyecek dosya/klasörleri listeler.
-- `README.md` : Proje açıklaması ve kullanım bilgisi.
+Bu proje, TryHackMe AttackBox ortamında haftalık otomatik ağ taraması yapmak için hazırlanan basit bir Bash script içerir.
 
 ## Kullanım
 
-1. Bu depoyu klonlayın veya kendi AttackBox ortamınıza taşıyın.
-2. `scan.sh` dosyasına çalışma izni verin:
+- `scan.sh` dosyasına çalışma izni verilmeli.
+- Script elle veya cron ile otomatik çalıştırılabilir.
+- Cron örneği:
 
-```bash
-chmod +x scan.sh
+0 3 * * 1 /bin/bash /path/to/scan.sh >> /path/to/reports/scan_log_$(date +\\%F).log 2>&1## Notlar
+
+- Script `reports/` klasöründe tarihli dosyalara çıktı kaydeder.
+- `reports/` klasörü .gitignore içinde takip edilmez.
